@@ -56,15 +56,16 @@
       <a onclick="loadHomework('Homework2')">Homework2</a>
       <a onclick="loadHomework('Homework3')">Homework3</a>
       <a onclick="loadHomework('Homework4')">Homework4</a>
+      <div style="margin-top:20px;font-size:11px;color:#999">hub v6</div>
     </div>
 
     <div id="stage">
-      <iframe id="viewer" src="Homework1/index.html"></iframe>
+      <iframe id="viewer" src="Homework1/index.html?v=6"></iframe>
     </div>
 
     <script>
       function loadHomework(folderName) {
-        document.getElementById("viewer").src = folderName + "/index.html";
+        document.getElementById("viewer").src = folderName + "/index.html?v=6";
       }
     </script>
   </body>
