@@ -26,6 +26,11 @@
     </style>
   </head>
   <body>
+    <script>
+      // 모바일(iOS 포함): 캔버스 위에서 손가락을 움직일 때
+      // 브라우저의 기본 동작(페이지 스크롤/확대)이 끼어드는 것을 원천 차단
+      document.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
+    </script>
     <script src="sketch.js"></script>
   </body>
 </html>
