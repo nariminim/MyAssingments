@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>이나림 과제 모음</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        display: flex;
+        height: 100vh;
+      }
+      #menu {
+        width: 100px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      #menu a {
+        display: block;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: blue;
+      }
+      #viewer {
+        flex: 1;
+        border: none;
+        touch-action: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+      <a onclick="loadHomework('과제1')">과제1</a>
+      <a onclick="loadHomework('과제2')">과제2</a>
+      <a onclick="loadHomework('과제3')">과제3</a>
+      <a onclick="loadHomework('과제4')">과제4</a>
+    </div>
+    <iframe id="viewer" src="과제1/index.html"></iframe>
+
+    <script>
+      function loadHomework(folderName) {
+        document.getElementById("viewer").src = folderName + "/index.html";
+      }
+    </script>
+  </body>
+</html>
