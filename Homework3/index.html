@@ -2,13 +2,18 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
     <title>과제3</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@2/lib/p5.min.js"></script>
     <style>
-      body {
+      html, body {
+        height: 100%;
         margin: 0;
         overflow: hidden;
+      }
+      body {
+        overscroll-behavior: none;
+        touch-action: none;
       }
       canvas {
         touch-action: none;
