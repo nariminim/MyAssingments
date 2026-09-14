@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <!-- 모바일 필수: 폰에서 PC용 화면처럼 축소되는 것 방지 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-    <title>과제3</title>
+    <title>Homework3</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@2/lib/p5.min.js"></script>
     <style>
       html, body {
@@ -11,24 +12,23 @@
         margin: 0;
         overflow: hidden;
       }
+      /* 터치 필수: 브라우저가 스크롤/확대 대신 코드에 터치를 넘기도록 함.
+         iOS Safari는 canvas가 아니라 body에 걸어야 인정함 */
       body {
-        overscroll-behavior: none;
         touch-action: none;
+        overscroll-behavior: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
       }
       canvas {
         touch-action: none;
-        user-select: none;
-        /* iOS용 터치방지 */
-        -webkit-user-select: none;
-        -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: transparent;
       }
     </style>
   </head>
   <body>
     <script>
-      // 모바일(iOS 포함): 캔버스 위에서 손가락을 움직일 때
-      // 브라우저의 기본 동작(페이지 스크롤/확대)이 끼어드는 것을 원천 차단
+      // 터치 필수: Safari는 CSS만으로는 드래그 스크롤을 완전히 못 막아서 스크립트로 한 번 더 차단
       document.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
     </script>
     <script src="sketch.js"></script>

@@ -2,10 +2,15 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <!-- 모바일 필수: 이 태그가 없으면 폰에서 PC용 화면처럼 축소되어 터치가 스크롤/확대로 해석됨 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <!-- 홈 화면에 추가하면 주소창/탭 없이 전체화면으로 열림 (Safari 공유 → 홈 화면에 추가) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>이나림 과제 모음</title>
     <style>
-      /* 허브 페이지 자체는 스크롤/선택되지 않게 고정 (iOS에서 터치가 페이지 스크롤로 새는 것 방지) */
+      /* 허브 페이지는 절대 스크롤/선택되지 않게 고정 (아이폰에서 터치가 페이지 스크롤로 새는 것 방지) */
       html, body {
         height: 100%;
         margin: 0;
@@ -14,9 +19,9 @@
         -webkit-user-select: none;
         user-select: none;
         -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: transparent;
         font-family: sans-serif;
       }
+      /* 왼쪽 메뉴 */
       #menu {
         position: fixed;
         top: 0;
@@ -33,7 +38,7 @@
         cursor: pointer;
         color: blue;
       }
-      /* iframe을 감싸는 박스: 메뉴 영역만큼 왼쪽을 비우고 나머지 화면 전체를 차지 */
+      /* iframe 영역: 메뉴(100px)를 뺀 나머지 화면 전체 */
       #stage {
         position: fixed;
         top: 0;
@@ -56,16 +61,17 @@
       <a onclick="loadHomework('Homework2')">Homework2</a>
       <a onclick="loadHomework('Homework3')">Homework3</a>
       <a onclick="loadHomework('Homework4')">Homework4</a>
-      <div style="margin-top:20px;font-size:11px;color:#999">hub v6</div>
     </div>
 
     <div id="stage">
-      <iframe id="viewer" src="Homework1/index.html?v=6"></iframe>
+      <!-- 처음 열었을 때 보여줄 과제 -->
+      <iframe id="viewer" src="Homework1/index.html"></iframe>
     </div>
 
     <script>
+      // 메뉴 클릭 시 iframe에 해당 폴더의 index.html을 불러옴
       function loadHomework(folderName) {
-        document.getElementById("viewer").src = folderName + "/index.html?v=6";
+        document.getElementById("viewer").src = folderName + "/index.html";
       }
     </script>
   </body>
