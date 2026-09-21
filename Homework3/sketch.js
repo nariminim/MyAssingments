@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background(240);
+  background(250);
   x += speed;
   if (x > width || x < 0) {
     speed *= -1;
